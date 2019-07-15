@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * App\Page
@@ -30,11 +31,11 @@ class Page extends Model
     protected $fillable = ['name', 'title', 'description', 'text', 'alias', 'is_published'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * @return MorphOne
      */
-    public function image()
+    public function image(): MorphOne
     {
-        return $this->morphOne('App\Image', 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 
     /**
@@ -42,6 +43,6 @@ class Page extends Model
      */
     public function getUrlAttribute(): string
     {
-        return route("page.show", $this->alias);
+        return route('page.show', $this->alias);
     }
 }

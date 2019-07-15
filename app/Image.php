@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * App\Image
@@ -34,12 +35,12 @@ class Image extends Model
     /**
      * @var array
      */
-    protected $fillable = ['path', 'alt', 'title', 'imageable_id', 'imageable_type'];
+    protected $guarded = [];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
-    public function imageable()
+    public function imageable(): MorphTo
     {
         return $this->morphTo();
     }

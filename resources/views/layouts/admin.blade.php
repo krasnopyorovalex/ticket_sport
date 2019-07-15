@@ -75,17 +75,9 @@
 
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
+                            <li><a href="{{ route('admin.championships.index') }}"><i class="icon-trophy3"></i> <span>Чемпионаты</span></a></li>
                             <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
-                            <li><a href="{{ route('admin.abouts.index') }}"><i class="icon-magazine"></i> <span>О нас</span></a></li>
-                            <li><a href="{{ route('admin.guestbooks.index') }}"><i class="icon-bubble2"></i> <span>Отзывы</span></a></li>
-                            <li><a href="{{ route('admin.actions.index') }}"><i class="icon-bell3"></i> <span>Акции</span></a></li>
-                            <li><a href="{{ route('admin.services.index') }}"><i class="icon-menu6"></i> <span>Услуги</span></a></li>
-                            <li><a href="{{ route('admin.works.index') }}"><i class="icon-list-ordered"></i> <span>Наши работы</span></a></li>
-                            <li><a href="{{ route('admin.faqs.index') }}"><i class="icon-question3"></i> <span>Faq</span></a></li>
-                            <li><a href="{{ route('admin.sliders.index') }}"><i class="icon-images2"></i> <span>Слайдер</span></a></li>
-                            <li><a href="{{ route('admin.galleries.index') }}"><i class="icon-images3"></i> <span>Галерея</span></a></li>
                             <li><a href="{{ route('admin.text_blocks.index') }}"><i class="icon-stack2"></i> <span>Текстовые-блоки</span></a></li>
-                            <li><a href="{{ route('admin.redirects.index') }}"><i class="icon-transmission"></i> <span>Редиректы</span></a></li>
                             <!-- /main -->
 
                         </ul>
