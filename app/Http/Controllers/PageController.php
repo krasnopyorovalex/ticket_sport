@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Domain\Page\Queries\GetPageByAliasQuery;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 
 /**
@@ -13,13 +13,10 @@ class PageController extends Controller
 {
 
     /**
-     * @param string $alias
-     * @return \Illuminate\Contracts\View\Factory|View
+     * @return Factory|View
      */
-    public function show(string $alias = 'index')
+    public function show()
     {
-        $page = $this->dispatch(new GetPageByAliasQuery($alias));
-
-        return view('page.index', ['page' => $page]);
+        return view('page.index');
     }
 }

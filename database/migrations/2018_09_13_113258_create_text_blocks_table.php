@@ -13,7 +13,7 @@ class CreateTextBlocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('text_blocks', function (Blueprint $table) {
+        Schema::create('text_blocks', static function (Blueprint $table) {
             $table->increments('id');
             $table->string('sys_name', 32)->unique();
             $table->string('name', 64);

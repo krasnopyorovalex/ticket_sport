@@ -15,7 +15,7 @@ class CreateChampionshipsTable extends Migration
     {
         Schema::create('championships', static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', '255');
+            $table->string('name', 255);
             $table->unsignedTinyInteger('pos')->default(0);
         });
     }

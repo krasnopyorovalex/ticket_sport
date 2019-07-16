@@ -90,6 +90,10 @@ class ChampionshipController extends Controller
         return redirect(route('admin.championships.index'));
     }
 
+    /**
+     * @param UpdatePositionChampionshipRequest $request
+     * @return array
+     */
     public function positions(UpdatePositionChampionshipRequest $request): array
     {
         $this->dispatch(new UpdatePositionChampionshipQuery($request->post('data')));

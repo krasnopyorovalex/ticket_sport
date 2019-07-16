@@ -3,7 +3,6 @@
 namespace Domain\Championship\Requests;
 
 use App\Http\Requests\Request;
-use Illuminate\Validation\Rule;
 
 /**
  * Class UpdateChampionshipRequest

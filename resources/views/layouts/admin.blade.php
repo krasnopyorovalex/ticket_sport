@@ -76,7 +76,9 @@
                             <!-- Main -->
                             <li class="navigation-header"><span>Навигация</span> <i class="icon-menu" title="Main pages"></i></li>
                             <li><a href="{{ route('admin.championships.index') }}"><i class="icon-trophy3"></i> <span>Чемпионаты</span></a></li>
-                            <li><a href="{{ route('admin.pages.index') }}"><i class="icon-compose"></i> <span>Страницы</span></a></li>
+                            <li><a href="{{ route('admin.teams.index') }}"><i class="icon-people"></i> <span>Команды</span></a></li>
+                            <li><a href="{{ route('admin.stadiums.index') }}"><i class="icon-location4"></i> <span>Стадионы</span></a></li>
+                            <li><a href="{{ route('admin.stadiums.index') }}"><i class="icon-clipboard3"></i> <span>Матчи</span></a></li>
                             <li><a href="{{ route('admin.text_blocks.index') }}"><i class="icon-stack2"></i> <span>Текстовые-блоки</span></a></li>
                             <!-- /main -->
 

@@ -17,6 +17,7 @@
             <tr class="border-solid">
                 <th>#</th>
                 <th>Название</th>
+                <th>Изображение</th>
                 <th></th>
             </tr>
             </thead>
@@ -25,17 +26,23 @@
                 <tr data-id="{{ $championship->id }}">
                     <td>
                         <div class="media-left media-middle">
-                            <i class="icon-dots dragula-handle"></i>
+                            <i class="icon-move dragula-handle"></i>
                         </div>
                     </td>
                     <td>{{ $championship->name }}</td>
                     <td>
+                        @if($championship->image)
+                            <img src="{{ $championship->image->path }}" alt="" width="30px">
+                        @endif
+                    </td>
+                    <td>
                         <div>
                             <a href="{{ route('admin.championships.edit', $championship) }}"><i class="icon-pencil7"></i></a>
+                            <a href="{{ route('admin.stages.index', ['championship' => $championship->id]) }}" data-original-title="Этапы" data-popup="tooltip"><i class="icon-lan2"></i></a>
                             <form method="POST" action="{{ route('admin.championships.destroy', $championship) }}" class="form__delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" class="last__btn" data-alias="{{ $championship->alias }}">
+                                <button type="submit" class="last__btn">
                                     <i class="icon-trash"></i>
                                 </button>
                             </form>

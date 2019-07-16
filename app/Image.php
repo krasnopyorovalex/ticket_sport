@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereTitle($value)
  * @mixin \Eloquent
- * @property-read \App\Page $page
  * @property int $imageable_id
  * @property string $imageable_type
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $imageable

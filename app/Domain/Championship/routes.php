@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'championships', 'as' => 'championships.'], function () {
+Route::group(['prefix' => 'championships', 'as' => 'championships.'], static function () {
     Route::pattern('id', '[0-9]+');
 
     Route::get('', 'ChampionshipController@index')->name('index');
