@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'text-blocks', 'as' => 'text_blocks.'], function () {
+Route::group(['prefix' => 'text-blocks', 'as' => 'text_blocks.'], static function () {
     Route::pattern('id', '[0-9]+');
 
     Route::get('', 'TextBlockController@index')->name('index');

@@ -7,6 +7,9 @@ use App\Domain\Match\Commands\CreateMatchCommand;
 use App\Domain\Match\Commands\DeleteMatchCommand;
 use App\Domain\Match\Commands\UpdateMatchCommand;
 use App\Domain\Match\Queries\GetAllMatchesQuery;
+use App\Domain\Stadium\Queries\GetAllStadiumsQuery;
+use App\Domain\Stage\Queries\GetAllStagesQuery;
+use App\Domain\Team\Queries\GetAllTeamsQuery;
 use App\Http\Controllers\Controller;
 use App\Stage;
 use Domain\Match\Requests\CreateMatchRequest;
@@ -42,8 +45,15 @@ class MatchController extends Controller
      */
     public function create(Stage $stage)
     {
+        $stages = $this->dispatch(new GetAllStagesQuery(null));
+        $stadiums = $this->dispatch(new GetAllStadiumsQuery());
+        $teams = $this->dispatch(new GetAllTeamsQuery());
+
         return view('admin.matches.create', [
-            'stage' => $stage
+            'stage' => $stage,
+            'stages' => $stages,
+            'stadiums' => $stadiums,
+            'teams' => $teams
         ]);
     }
 
@@ -65,9 +75,15 @@ class MatchController extends Controller
     public function edit($id)
     {
         $match = $this->dispatch(new GetMatchByIdQuery($id));
+        $stages = $this->dispatch(new GetAllStagesQuery(null));
+        $stadiums = $this->dispatch(new GetAllStadiumsQuery());
+        $teams = $this->dispatch(new GetAllTeamsQuery());
 
         return view('admin.matches.edit', [
-            'Match' => $match
+            'match' => $match,
+            'stages' => $stages,
+            'stadiums' => $stadiums,
+            'teams' => $teams
         ]);
     }
 

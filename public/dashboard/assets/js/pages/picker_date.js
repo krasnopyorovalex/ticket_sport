@@ -11,6 +11,24 @@
 
 $(function() {
 
+    // Date and time
+    $("#start_datetime").AnyTime_picker({
+        format: "%Y-%m-%d %H:%i:00",
+        placement: 'popup',
+        monthAbbreviations: [
+            'Янв','Фев','Мар','Апр','Май','Июнь','Июль','Авг','Сент', 'Окт','Ноя','Дек'
+        ],
+        dayAbbreviations: [
+            'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт','Сб'
+        ],
+        labelYear: 'Год',
+        labelDayOfMonth: 'День недели',
+        labelMonth: 'Месяц',
+        labelTitle: 'Выберите день и время матча',
+        labelHour: 'Часы',
+        labelMinute: 'Минуты'
+    });
+
     // Localization
     $('.daterange-single').daterangepicker({
         applyClass: 'bg-slate-600',

@@ -18,15 +18,23 @@
             <thead>
             <tr class="border-solid">
                 <th>#</th>
-                <th>Название</th>
+                <th>Команды матча</th>
+                <th>Стадион</th>
+                <th>Время начала матча</th>
                 <th></th>
             </tr>
             </thead>
-            <tbody id="table__dnd">
+            <tbody>
             @foreach($matches as $match)
-                <tr data-id="{{ $match->id }}">
+                <tr>
                     <td><span class="label label-primary">{{ $loop->iteration }}</span></td>
-                    <td>{{ $match->name }}</td>
+                    <td>
+                        <span class="label {{ ! $match->status ? 'label-danger not_active' : 'label-primary' }}">
+                            {{ $match->teamFirst->name }} - {{ $match->teamSecond ? $match->teamSecond->name : '?' }}
+                        </span>
+                    </td>
+                    <td><span class="label label-default">{{ $match->stadium->name}}</span></td>
+                    <td><span class="label label-success">{{ $match->start_datetime }}</span></td>
                     <td>
                         <div>
                             <a href="{{ route('admin.matches.edit', $match) }}"><i class="icon-pencil7"></i></a>

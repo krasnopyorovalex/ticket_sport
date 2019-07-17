@@ -3,6 +3,7 @@
 namespace Domain\Match\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 /**
  * Class CreateMatchRequest
@@ -13,8 +14,14 @@ class CreateMatchRequest extends Request
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
-            'image' => 'image'
+            'stage_id' => 'required|integer|exists:stages,id',
+            'stadium_id' => 'required|integer|exists:stadiums,id',
+            'team_first_id' => 'required|integer|exists:teams,id',
+            'team_second_id' => 'integer|exists:teams,id|nullable',
+            'is_popular' => Rule::in(['0','1']),
+            'status' => Rule::in(['0','1']),
+            'start_datetime' => 'required|date_format:"Y-m-d H:i:s"',
+            'text' => 'string|nullable'
         ];
     }
 
@@ -26,7 +33,10 @@ class CreateMatchRequest extends Request
     public function messages(): array
     {
         return [
-            'name.required' => 'Поле «Название» обязательно для заполнения'
+            'stage_id.required' => 'Поле «Этап» обязательно для заполнения',
+            'stadium_id.required' => 'Поле «Стадион» обязательно для заполнения',
+            'team_first_id.required' => 'Поле «Первая команда» обязательно для заполнения',
+            'start_datetime.required' => 'Поле «Время начала матча» обязательно для заполнения',
         ];
     }
 }

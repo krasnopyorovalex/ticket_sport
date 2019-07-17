@@ -361,3 +361,6 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .navbar-nav>.dropdown-user img {
     border-radius: unset;
 }
+.not_active {
+    text-decoration: line-through;
+}

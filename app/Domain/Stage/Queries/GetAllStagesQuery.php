@@ -15,9 +15,9 @@ class GetAllStagesQuery
 
     /**
      * GetAllStagesQuery constructor.
-     * @param Championship $championship
+     * @param Championship|null $championship
      */
-    public function __construct(Championship $championship)
+    public function __construct(?Championship $championship)
     {
         $this->championship = $championship;
     }
@@ -27,8 +27,12 @@ class GetAllStagesQuery
      */
     public function handle()
     {
-        return Stage::whereChampionshipId($this->championship->id)
-            ->orderBy('pos')
-            ->get();
+        $query = Stage::orderBy('pos');
+
+        if ($this->championship) {
+            $query->whereChampionshipId($this->championship->id);
+        }
+
+        return $query->get();
     }
 }

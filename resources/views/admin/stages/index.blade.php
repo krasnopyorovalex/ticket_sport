@@ -35,7 +35,7 @@
                     <td>
                         <div>
                             <a href="{{ route('admin.stages.edit', $championship) }}"><i class="icon-pencil7"></i></a>
-                            <a href="{{ route('admin.matches.index', ['stage' => $stage->id]) }}" data-original-title="Этапы" data-popup="tooltip"><i class="icon-lan2"></i></a>
+                            <a href="{{ route('admin.matches.index', ['stage' => $stage->id]) }}" data-original-title="Матчи" data-popup="tooltip"><i class="icon-lan2"></i></a>
                             <form method="POST" action="{{ route('admin.stages.destroy', $stage) }}" class="form__delete">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

@@ -12,7 +12,6 @@ class Match extends Model
     protected $guarded = [];
 
     protected $with = [
-        'championship',
         'stadium',
         'teamFirst',
         'teamSecond'
@@ -21,9 +20,9 @@ class Match extends Model
     /**
      * @return BelongsTo
      */
-    public function championship(): BelongsTo
+    public function stage(): BelongsTo
     {
-        return $this->belongsTo(Championship::class);
+        return $this->belongsTo(Stage::class);
     }
 
     /**
@@ -48,5 +47,14 @@ class Match extends Model
     public function teamSecond(): BelongsTo
     {
         return $this->belongsTo(Team::class, 'team_second_id');
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('status', '1');
     }
 }

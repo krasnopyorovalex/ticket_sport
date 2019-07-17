@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\Match\Queries;
+namespace App\Domain\Order\Queries;
 
-use App\Match;
+use App\Order;
 
 /**
- * Class GetMatchByIdQuery
- * @package App\Domain\Match\Queries
+ * Class GetOrderByIdQuery
+ * @package App\Domain\Order\Queries
  */
-class GetMatchByIdQuery
+class GetOrderByIdQuery
 {
     /**
      * @var int
@@ -16,7 +16,7 @@ class GetMatchByIdQuery
     private $id;
 
     /**
-     * GetMatchByIdQuery constructor.
+     * GetOrderByIdQuery constructor.
      * @param int $id
      */
     public function __construct(int $id)
@@ -29,6 +29,6 @@ class GetMatchByIdQuery
      */
     public function handle()
     {
-        return Match::findOrFail($this->id);
+        return Order::findOrFail($this->id);
     }
 }
