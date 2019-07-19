@@ -17,7 +17,6 @@ class CreateStadiumPlacesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('stadium_id');
             $table->string('name', 255);
-            $table->string('price', 127);
             $table->char('color', 7);
             $table->unsignedTinyInteger('pos')->default(0);
 

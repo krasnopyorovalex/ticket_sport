@@ -14,8 +14,7 @@ class CreateStadiumPlaceRequest extends Request
     {
         return [
             'name' => 'required|max:255',
-            'color' => 'required|max:7|min:7',
-            'price' => 'required|string|max:127'
+            'color' => 'required|max:7|min:7'
         ];
     }
 
@@ -28,8 +27,7 @@ class CreateStadiumPlaceRequest extends Request
     {
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',
-            'color.required' => 'Поле «Ф» обязательно для заполнения',
-            'price.required' => 'Поле «Цена» обязательно для заполнения'
+            'color.required' => 'Поле «Ф» обязательно для заполнения'
         ];
     }
 }

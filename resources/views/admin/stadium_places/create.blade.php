@@ -20,7 +20,6 @@
                 <input type="hidden" value="{{ $stadium->id }}" name="stadium_id">
 
                 @input(['name' => 'name', 'label' => 'Название'])
-                @input(['name' => 'price', 'label' => 'Цена'])
 
                 <div class="form-group">
                     <label for="f_color">Цвет фона:</label>

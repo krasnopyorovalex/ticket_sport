@@ -30,7 +30,6 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @input(['name' => 'name', 'label' => 'Название', 'entity' => $stadiumPlace])
-                                    @input(['name' => 'price', 'label' => 'Цена', 'entity' => $stadiumPlace])
 
                                     <div class="form-group">
                                         <label for="f_color">Цвет фона:</label>

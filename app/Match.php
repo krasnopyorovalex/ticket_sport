@@ -57,4 +57,13 @@ class Match extends Model
     {
         return $query->where('status', '1');
     }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopePopular($query)
+    {
+        return $query->where('is_popular', '1');
+    }
 }

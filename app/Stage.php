@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Stage extends Model
 {
@@ -13,7 +14,7 @@ class Stage extends Model
 
     protected $guarded = [];
 
-    protected $with = ['match'];
+    protected $with = ['matches','activeMatches'];
 
     /**
      * @return BelongsTo
@@ -21,5 +22,21 @@ class Stage extends Model
     public function championship(): BelongsTo
     {
         return $this->belongsTo(Championship::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function matches(): HasMany
+    {
+        return $this->hasMany(Match::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function activeMatches(): HasMany
+    {
+        return $this->hasMany(Match::class)->active();
     }
 }

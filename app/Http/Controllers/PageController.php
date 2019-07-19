@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Championship\Queries\GetAllChampionshipsQuery;
+use App\Domain\Match\Queries\GetAllPopularMatchesQuery;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 
@@ -17,6 +19,12 @@ class PageController extends Controller
      */
     public function show()
     {
-        return view('page.index');
+        $popularMatches = $this->dispatch(new GetAllPopularMatchesQuery);
+        $championships = $this->dispatch(new GetAllChampionshipsQuery);
+
+        return view('page.index', [
+            'popularMatches' => $popularMatches,
+            'championships' => $championships
+        ]);
     }
 }

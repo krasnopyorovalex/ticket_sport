@@ -14,6 +14,8 @@ class Championship extends Model
 
     protected $with = ['stages', 'image'];
 
+    private $teams = [];
+
     /**
      * @return MorphOne
      */
@@ -28,5 +30,28 @@ class Championship extends Model
     public function stages(): HasMany
     {
         return $this->hasMany(Stage::class);
+    }
+
+    /**
+     * @return array
+     */
+    public function getTeamsAttribute(): array
+    {
+        foreach ($this->stages as $stage) {
+
+            if ($stage->activeMatches) {
+
+                foreach ($stage->activeMatches as $match) {
+
+                    $this->teams[$match->teamFirst->id] = $match->teamFirst;
+
+                    $match->teamSecond ?
+                        $this->teams[$match->teamSecond->id] = $match->teamSecond
+                        : false;
+                }
+            }
+        }
+
+        return $this->teams;
     }
 }
