@@ -14,8 +14,6 @@ class Stage extends Model
 
     protected $guarded = [];
 
-    protected $with = ['matches','activeMatches'];
-
     /**
      * @return BelongsTo
      */
@@ -30,13 +28,5 @@ class Stage extends Model
     public function matches(): HasMany
     {
         return $this->hasMany(Match::class);
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function activeMatches(): HasMany
-    {
-        return $this->hasMany(Match::class)->active();
     }
 }

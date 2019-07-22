@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -10,12 +11,6 @@ class Match extends Model
     public $timestamps = false;
 
     protected $guarded = [];
-
-    protected $with = [
-        'stadium',
-        'teamFirst',
-        'teamSecond'
-    ];
 
     /**
      * @return BelongsTo
@@ -48,6 +43,23 @@ class Match extends Model
     {
         return $this->belongsTo(Team::class, 'team_second_id');
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDateAttribute()
+    {
+        return Carbon::parse($this->start_datetime)->format('Y-m-d');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimeAttribute()
+    {
+        return Carbon::parse($this->start_datetime)->format('H:i');
+    }
+
 
     /**
      * @param $query

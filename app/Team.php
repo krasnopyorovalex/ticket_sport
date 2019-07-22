@@ -13,8 +13,6 @@ class Team extends Model
 
     protected $guarded = ['image'];
 
-    protected $with = ['image'];
-
     /**
      * @return MorphOne
      */

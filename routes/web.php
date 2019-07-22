@@ -15,11 +15,12 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
-Route::post('send-callback', 'FormHandlerController@callback')->name('send.callback');
+Route::post('send-callback', 'CallbackController@callback')->name('send.callback');
+Route::post('send-order', 'OrderController@order')->name('send.order');
 
-Route::get('{alias?}/{page?}', 'PageController@show')->name('page.show')->where('page', '[0-9]+');
+Route::get('{alias?}', 'PageController@show')->name('page.show');
 
-Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], static function () {
 
     Route::get('', 'HomeController@home')->name('home');
 

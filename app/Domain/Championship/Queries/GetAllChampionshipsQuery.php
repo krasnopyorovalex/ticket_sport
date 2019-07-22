@@ -10,11 +10,17 @@ use App\Championship;
  */
 class GetAllChampionshipsQuery
 {
+    private static $championships;
+
     /**
      * Execute the job.
      */
     public function handle()
     {
-        return Championship::orderBy('pos')->get();
+        if (!self::$championships) {
+            self::$championships = Championship::with(['stages', 'image'])->orderBy('pos')->get();
+        }
+
+        return self::$championships;
     }
 }

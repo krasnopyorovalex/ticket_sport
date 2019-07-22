@@ -8,7 +8,7 @@
                             <use xlink:href="{{ asset('img/sprites/sprite.svg#close') }}"></use>
                         </svg>
                     </div>
-                    <form action="#" method="post">
+                    <form action="{{ route('send.order') }}" method="post">
                         @csrf
                         <div class="single_block">
                             <label for="form_filed-name">Имя Фамилия</label>
@@ -24,7 +24,12 @@
                         </div>
                         <div class="single_block">
                             <label for="form_filed-match">Матч, дата и категория</label>
-                            <input type="email" autocomplete="off" name="match" id="form_filed-match">
+                            <input type="text" class="match_info" autocomplete="off" name="match" id="form_filed-match" readonly>
+                        </div>
+                        <div class="single_block i_agree">
+                            <input type="checkbox" name="agree" id="i_agree-popup" value="1" checked="checked">
+                            <label for="i_agree-popup">Оставляя заявку, Вы соглашаетесь на обработку персональных данных</label>
+                            <p class="error">Согласитесь на обработку персональных данных</p>
                         </div>
                         <div class="single_block submit">
                             <button type="submit" class="btn btn_order">Отправить заявку</button>

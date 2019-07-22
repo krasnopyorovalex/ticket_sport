@@ -15,6 +15,6 @@ class GetAllTeamsQuery
      */
     public function handle()
     {
-        return Team::orderBy('pos')->get();
+        return Team::with(['image'])->orderBy('pos')->get();
     }
 }

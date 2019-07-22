@@ -4,13 +4,14 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\TextBlockComposer;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 class TextBlockServiceProvider extends ServiceProvider
 {
     /**
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws BindingResolutionException
      */
-    public function register()
+    public function register(): void
     {
         $this->app->make('view')->composer(['layouts.app','page.index'], TextBlockComposer::class);
     }

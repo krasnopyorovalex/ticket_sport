@@ -14,15 +14,15 @@ class CreateOrderCommand
 {
     use DispatchesJobs;
 
-    private $request;
+    private $data;
 
     /**
      * CreateOrderCommand constructor.
-     * @param Request $request
+     * @param array $data
      */
-    public function __construct(Request $request)
+    public function __construct(array $data)
     {
-        $this->request = $request;
+        $this->data = $data;
     }
 
     /**
@@ -31,7 +31,9 @@ class CreateOrderCommand
     public function handle(): bool
     {
         $order = new Order();
-        $order->fill($this->request->all());
+        $order->match = $this->data['match'];
+        $order->body = view('emails.order', ['data' => $this->data]);
+        $order->created_at = date('Y-m-d H:i:s');
 
         return $order->save();
     }

@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class FormHandlerController
+ * Class CallbackController
  * @package App\Http\Controllers
  */
-class FormHandlerController extends Controller
+class CallbackController extends Controller
 {
     use DispatchesJobs;
 
@@ -27,7 +27,7 @@ class FormHandlerController extends Controller
         Mail::to([$this->to])->send(new CallbackSent($request->all()));
 
         return [
-            'message' => 'Благодарим за Вашу заявку. Наш менеджер свяжется с Вами в ближайшее время',
+            'message' => 'Благодарим за Вашу заявку. Мы свяжемся с Вами в ближайшее время',
             'status' => 200
         ];
     }

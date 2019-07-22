@@ -24,16 +24,14 @@
                         </div>
                     @endif
                     <div class="list_commands">
-                    @if($championship->teams)
                         @foreach($championship->teams as $team)
                             <div>
                                 @if($team->image)
-                                <img src="{{ $team->image->path }}" alt="{{ $team->image->alt }}" title="{{ $team->image->title }}">
+                                    <img src="{{ $team->image->path }}" alt="{{ $team->image->alt }}" title="{{ $team->image->title }}">
                                 @endif
                                 <span>{{ $team->name }}</span>
                             </div>
                         @endforeach
-                    @endif
                     </div>
                 </div>
                 @endforeach

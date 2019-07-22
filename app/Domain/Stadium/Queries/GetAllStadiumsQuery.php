@@ -10,11 +10,17 @@ use App\Stadium;
  */
 class GetAllStadiumsQuery
 {
+    private static $stadiums;
+
     /**
      * Execute the job.
      */
     public function handle()
     {
-        return Stadium::all();
+        if (!self::$stadiums) {
+            self::$stadiums = Stadium::with(['stadiumPlaces', 'image'])->get();
+        }
+
+        return self::$stadiums;
     }
 }

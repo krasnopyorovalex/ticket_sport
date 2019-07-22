@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'throttle:30,1', 'namespace' => 'Api', 'as' => 'api.'], static function () {
+
+    Route::get('matches', 'MatchController@index');
+    Route::get('matches/{id}', 'MatchController@show')->where(['id' => '[0-9]+']);
 });

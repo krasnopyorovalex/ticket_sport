@@ -15,6 +15,6 @@ class GetAllOrdersQuery
      */
     public function handle()
     {
-        return Order::all();
+        return Order::orderBy('created_at', 'desc')->paginate(30);
     }
 }

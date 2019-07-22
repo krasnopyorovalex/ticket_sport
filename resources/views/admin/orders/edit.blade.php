@@ -26,9 +26,8 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main">
 
-                            @input(['name' => 'name', 'label' => 'Название', 'entity' => $order])
-                            @input(['name' => 'sys_name', 'label' => 'Системное имя', 'entity' => $order])
-                            @textarea(['name' => 'text', 'label' => 'Текст', 'entity' => $order])
+                            @input(['name' => 'match', 'label' => 'Матч', 'entity' => $order])
+                            @textarea(['name' => 'body', 'label' => 'Текст заявки', 'entity' => $order])
 
                             @submit_btn()
                         </div>

@@ -27,7 +27,7 @@ class GetAllStagesQuery
      */
     public function handle()
     {
-        $query = Stage::orderBy('pos');
+        $query = Stage::with(['matches'])->orderBy('pos');
 
         if ($this->championship) {
             $query->whereChampionshipId($this->championship->id);

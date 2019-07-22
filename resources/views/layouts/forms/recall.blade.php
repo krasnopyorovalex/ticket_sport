@@ -14,7 +14,7 @@
         <div class="single_block">
             <textarea name="message" placeholder="Комментарий"></textarea>
         </div>
-        <div class="single_block i__agree">
+        <div class="single_block i_agree">
             <input type="checkbox" name="agree" id="i_agree" value="1" checked="checked">
             <label for="i_agree">Оставляя заявку, Вы соглашаетесь на обработку персональных данных</label>
             <p class="error">Согласитесь на обработку персональных данных</p>

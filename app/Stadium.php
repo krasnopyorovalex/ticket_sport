@@ -16,8 +16,6 @@ class Stadium extends Model
 
     protected $guarded = ['image'];
 
-    protected $with = ['stadiumPlaces', 'image'];
-
     /**
      * @return HasMany
      */

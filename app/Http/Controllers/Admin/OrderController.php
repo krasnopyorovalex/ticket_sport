@@ -40,7 +40,7 @@ class OrderController extends Controller
         $order = $this->dispatch(new GetOrderByIdQuery($id));
 
         return view('admin.orders.edit', [
-            'Order' => $order
+            'order' => $order
         ]);
     }
 

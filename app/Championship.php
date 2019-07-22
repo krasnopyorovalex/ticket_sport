@@ -12,8 +12,6 @@ class Championship extends Model
 
     protected $guarded = ['image'];
 
-    protected $with = ['stages', 'image'];
-
     private $teams = [];
 
     /**
@@ -37,18 +35,26 @@ class Championship extends Model
      */
     public function getTeamsAttribute(): array
     {
-        foreach ($this->stages as $stage) {
+        $stages = $this->stages->pluck('id');
 
-            if ($stage->activeMatches) {
+        if (!count($stages)) {
+            return $this->teams;
+        }
 
-                foreach ($stage->activeMatches as $match) {
+        $activeMatches = Match::whereIn('stage_id', $this->stages->pluck('id'))
+            ->with(['teamFirst.image', 'teamSecond.image'])
+            ->active()
+            ->get();
 
-                    $this->teams[$match->teamFirst->id] = $match->teamFirst;
+        if ($activeMatches) {
 
-                    $match->teamSecond ?
-                        $this->teams[$match->teamSecond->id] = $match->teamSecond
-                        : false;
-                }
+            foreach ($activeMatches as $match) {
+
+                $this->teams[$match->teamFirst->id] = $match->teamFirst;
+
+                $match->teamSecond ?
+                    $this->teams[$match->teamSecond->id] = $match->teamSecond
+                    : false;
             }
         }
 

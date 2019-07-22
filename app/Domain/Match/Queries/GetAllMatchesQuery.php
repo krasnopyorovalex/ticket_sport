@@ -28,7 +28,6 @@ class GetAllMatchesQuery
     public function handle()
     {
         return Match::whereStageId($this->stage->id)
-            ->orderBy('status')
             ->orderBy('start_datetime', 'desc')
             ->get();
     }

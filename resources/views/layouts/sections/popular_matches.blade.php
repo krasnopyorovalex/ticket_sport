@@ -31,13 +31,13 @@
                     <div class="match_country">
                         @if($popularMatch->stadium)
                             {{ $popularMatch->stadium->location }}
-                            @if($popularMatch->stadium->image)
-                                <img src="{{ $popularMatch->stadium->image->path }}" alt="{{ $popularMatch->stadium->image->alt }}" title="{{ $popularMatch->stadium->image->title }}">
-                            @endif
+{{--                            @if($popularMatch->stadium->image)--}}
+{{--                                <img src="{{ $popularMatch->stadium->image->path }}" alt="{{ $popularMatch->stadium->image->alt }}" title="{{ $popularMatch->stadium->image->title }}">--}}
+{{--                            @endif--}}
                         @endif
                     </div>
                     <div class="match_order">
-                        <div class="btn btn_order call_form-order call_form-order">
+                        <div class="btn btn_order" data-match="{{ $popularMatch->id }}">
                             <svg>
                                 <use xlink:href="{{ asset('img/sprites/sprite.svg#tickets') }}"></use>
                             </svg>

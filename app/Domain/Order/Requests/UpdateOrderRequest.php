@@ -14,8 +14,7 @@ class UpdateOrderRequest extends Request
     {
         return [
             'match' => 'bail|required|string|max:255',
-            'body' => 'required|string',
-            'created_at' => 'required|date_format:"Y-m-d H:i:s"',
+            'body' => 'required|string'
         ];
     }
 
@@ -28,8 +27,7 @@ class UpdateOrderRequest extends Request
     {
         return [
             'match.required' => 'Поле «Матч» обязательно для заполнения',
-            'body.required' => 'Поле «Текст заказа» обязательно для заполнения',
-            'created_at.required' => 'Поле «Дата и время заказа» обязательно для заполнения'
+            'body.required' => 'Поле «Текст заказа» обязательно для заполнения'
         ];
     }
 }
