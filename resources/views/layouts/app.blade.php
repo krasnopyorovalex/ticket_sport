@@ -74,10 +74,10 @@
                     </a>
                 </div>
                 <div class="logo_box-search">
-                    <form action="#">
+                    <form action="{{ route('api.search') }}" method="post">
                         @csrf
                         <div class="single_block">
-                            <input type="text" name="keyword" autocomplete="off" placeholder="Введите название команды">
+                            <input type="text" name="keyword" autocomplete="off" placeholder="Введите название команды" required="" minlength="3">
                             <i class="icon icon_search"></i>
                         </div>
                     </form>

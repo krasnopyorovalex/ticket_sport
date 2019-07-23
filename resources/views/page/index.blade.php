@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <iframe src="https://yandex.ru/map-widget/v1/-/CCDAYMJi" width="100%" height="454" frameborder="0" allowfullscreen="true"></iframe>
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CCDAYMJi" width="100%" height="460" frameborder="0" allowfullscreen="true"></iframe>
                 </div>
                 <div class="col-4">
                     @include('layouts.forms.recall')
