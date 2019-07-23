@@ -17,15 +17,15 @@
                     @if($championship->stages)
                         <div class="tab_list-stages">
                             @foreach($championship->stages as $stage)
-                                <div>
+                                <div data-stage="{{ $stage->id }}">
                                     {{ $stage->name }}
                                 </div>
                             @endforeach
                         </div>
                     @endif
-                    <div class="list_commands">
+                    <div class="list_teams">
                         @foreach($championship->teams as $team)
-                            <div>
+                            <div data-team="{{ $team->id }}">
                                 @if($team->image)
                                     <img src="{{ $team->image->path }}" alt="{{ $team->image->alt }}" title="{{ $team->image->title }}">
                                 @endif

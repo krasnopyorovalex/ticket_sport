@@ -12,19 +12,23 @@
                         @csrf
                         <div class="single_block">
                             <label for="form_filed-name">Имя Фамилия</label>
-                            <input type="text" autocomplete="off" name="name" id="form_filed-name">
+                            <input type="text" autocomplete="off" name="name" id="form_filed-name" required="" minlength="3">
                         </div>
                         <div class="single_block">
                             <label for="form_filed-phone">Телефон</label>
-                            <input type="text" autocomplete="off" name="phone" id="form_filed-phone" class="field_phone">
+                            <input type="text" autocomplete="off" name="phone" id="form_filed-phone" class="field_phone" required="">
                         </div>
                         <div class="single_block">
                             <label for="form_filed-email">Email</label>
-                            <input type="email" autocomplete="off" name="email" id="form_filed-email">
+                            <input type="email" autocomplete="off" name="email" id="form_filed-email" required="">
                         </div>
                         <div class="single_block">
-                            <label for="form_filed-match">Матч, дата и категория</label>
-                            <input type="text" class="match_info" autocomplete="off" name="match" id="form_filed-match" readonly>
+                            <label for="form_filed-match">Матч, дата</label>
+                            <input type="text" class="match_info" autocomplete="off" name="match" id="form_filed-match" readonly required="">
+                        </div>
+                        <div class="single_block">
+                            <label for="form_filed-ticket">Категория, количество</label>
+                            <input type="text" class="ticket_info" autocomplete="off" name="ticket" id="form_filed-ticket" readonly required="">
                         </div>
                         <div class="single_block i_agree">
                             <input type="checkbox" name="agree" id="i_agree-popup" value="1" checked="checked">

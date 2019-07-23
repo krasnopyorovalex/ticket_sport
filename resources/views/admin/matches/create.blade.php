@@ -73,6 +73,11 @@
                         </div>
                     </div>
                 </div>
+                <div id="stadium_places">
+                    @includeWhen($stadiumFirst && count($stadiumFirst->stadiumPlaces), 'layouts.partials.stadium_places', [
+                        'stadiumPlaces' => $stadiumFirst->stadiumPlaces
+                    ])
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         @textarea(['name' => 'text', 'label' => 'Текст'])

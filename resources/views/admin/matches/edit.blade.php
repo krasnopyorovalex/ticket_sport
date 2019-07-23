@@ -80,6 +80,14 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="stadium_places">
+                    @includeWhen($match->stadium && count($match->stadium->stadiumPlaces), 'layouts.partials.stadium_places', [
+                        'stadiumPlaces' => $match->stadium->stadiumPlaces,
+                        'matchPlaces' => $match->matchPlaces
+                    ])
+                </div>
+
                 <div class="row">
                     <div class="col-md-12">
                         @textarea(['name' => 'text', 'label' => 'Текст'])

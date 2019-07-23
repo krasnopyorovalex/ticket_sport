@@ -29,6 +29,8 @@ class GetMatchByIdQuery
      */
     public function handle()
     {
-        return Match::findOrFail($this->id);
+        return Match::with(['matchPlaces' => static function ($query) {
+            return $query->with(['stadiumPlace']);
+        }])->findOrFail($this->id);
     }
 }

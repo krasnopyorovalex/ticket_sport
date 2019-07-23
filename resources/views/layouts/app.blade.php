@@ -119,12 +119,12 @@
                         TicketGroup
                     </div>
                     <div class="form_subscribe">
-                        <form action="#" method="post">
+                        <form action="{{ route('send.subscribe') }}" method="post">
                             <div class="single_block email">
                                 <svg>
                                     <use xlink:href="{{ asset('img/sprites/sprite.svg#mail') }}"></use>
                                 </svg>
-                                <input type="email" name="email" placeholder="" autocomplete="off">
+                                <input type="email" name="email" placeholder="" autocomplete="off" required="">
                             </div>
                             <div class="single_block submit">
                                 <button type="submit" class="btn btn_subscribe">Подписаться</button>

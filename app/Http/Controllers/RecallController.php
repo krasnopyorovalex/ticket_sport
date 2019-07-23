@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Forms\CallbackRequest;
+use App\Http\Requests\Forms\RecallRequest;
 
-use App\Mail\CallbackSent;
+use App\Mail\RecallSent;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
- * Class CallbackController
+ * Class RecallController
  * @package App\Http\Controllers
  */
-class CallbackController extends Controller
+class RecallController extends Controller
 {
     use DispatchesJobs;
 
     private $to = 'djShtaket88@mail.ru';
 
     /**
-     * @param CallbackRequest $request
+     * @param RecallRequest $request
      * @return array
      */
-    public function callback(CallbackRequest $request): array
+    public function recall(RecallRequest $request): array
     {
-        Mail::to([$this->to])->send(new CallbackSent($request->all()));
+        Mail::to([$this->to])->send(new RecallSent($request->all()));
 
         return [
             'message' => 'Благодарим за Вашу заявку. Мы свяжемся с Вами в ближайшее время',

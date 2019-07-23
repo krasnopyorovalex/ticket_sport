@@ -53,6 +53,7 @@ class MatchController extends Controller
             'stage' => $stage,
             'stages' => $stages,
             'stadiums' => $stadiums,
+            'stadiumFirst' => $stadiums->first(),
             'teams' => $teams
         ]);
     }
@@ -78,6 +79,10 @@ class MatchController extends Controller
         $stages = $this->dispatch(new GetAllStagesQuery(null));
         $stadiums = $this->dispatch(new GetAllStadiumsQuery());
         $teams = $this->dispatch(new GetAllTeamsQuery());
+
+        $match->matchPlaces = $match->matchPlaces->mapWithKeys(static function ($item) {
+            return [$item->stadium_place_id => $item->price];
+        });
 
         return view('admin.matches.edit', [
             'match' => $match,

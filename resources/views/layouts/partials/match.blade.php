@@ -15,8 +15,8 @@
         </div>
         <div>-</div>
         <div>
-            <span>{{ $match->teamSecond->name }}</span>
-            @if($match->teamSecond->image)
+            <span>{{ $match->teamSecond ? $match->teamSecond->name : '?' }}</span>
+            @if($match->teamSecond && $match->teamSecond->image)
                 <img src="{{ $match->teamSecond->image->path }}" alt="{{ $match->teamSecond->image->alt }}" title="{{ $match->teamSecond->image->title }}">
             @endif
         </div>

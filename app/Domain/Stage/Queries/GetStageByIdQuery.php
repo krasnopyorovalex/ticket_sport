@@ -29,6 +29,8 @@ class GetStageByIdQuery
      */
     public function handle()
     {
-        return Stage::findOrFail($this->id);
+        return Stage::with(['matches' => static function($query) {
+            return $query->active();
+        }])->findOrFail($this->id);
     }
 }

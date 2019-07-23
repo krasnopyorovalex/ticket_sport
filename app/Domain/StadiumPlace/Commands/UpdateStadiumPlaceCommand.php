@@ -38,5 +38,4 @@ class UpdateStadiumPlaceCommand
 
         return $stadiumPlace->update($this->request->all());
     }
-
 }

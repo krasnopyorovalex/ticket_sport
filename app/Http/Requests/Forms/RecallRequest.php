@@ -5,17 +5,17 @@ namespace App\Http\Requests\Forms;
 use App\Http\Requests\Request;
 
 /**
- * Class CallbackRequest
+ * Class RecallRequest
  * @package App\Http\Requests\Forms
  */
-class CallbackRequest extends Request
+class RecallRequest extends Request
 {
     public function rules(): array
     {
         return [
-            'fio' => 'required|string|min:2',
+            'name' => 'required|string|min:3',
             'phone' => 'required|string',
-            'email' => 'required|email',
+            'time' => 'string|nullable',
             'message' => 'string|nullable'
         ];
     }

@@ -18,6 +18,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Http\Response;
 
 /**
  * Class StadiumPlaceController
@@ -108,5 +109,19 @@ class StadiumPlaceController extends Controller
         $this->dispatch(new UpdatePositionStadiumPlaceQuery($request->post('data')));
 
         return ['message' => 'Позиции мест обновлены'];
+    }
+
+    /**
+     * @param int $stadium
+     * @return Response
+     */
+    public function places(int $stadium): Response
+    {
+        $stadium = $this->dispatch(new GetStadiumByIdQuery($stadium));
+
+        return response()
+            ->view('layouts.partials.stadium_places', [
+                'stadiumPlaces' => $stadium->stadiumPlaces
+            ]);
     }
 }

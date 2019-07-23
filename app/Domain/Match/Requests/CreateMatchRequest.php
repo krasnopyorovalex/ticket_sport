@@ -21,7 +21,8 @@ class CreateMatchRequest extends Request
             'is_popular' => Rule::in(['0','1']),
             'status' => Rule::in(['0','1']),
             'start_datetime' => 'required|date_format:"Y-m-d H:i:s"',
-            'text' => 'string|nullable'
+            'text' => 'string|nullable',
+            'places' => 'array'
         ];
     }
 

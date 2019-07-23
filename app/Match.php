@@ -5,12 +5,14 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Match extends Model
 {
     public $timestamps = false;
 
-    protected $guarded = [];
+    protected $guarded = ['places'];
 
     /**
      * @return BelongsTo
@@ -42,6 +44,22 @@ class Match extends Model
     public function teamSecond(): BelongsTo
     {
         return $this->belongsTo(Team::class, 'team_second_id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function matchPlaces(): HasMany
+    {
+        return $this->hasMany(MatchPlace::class, 'match_id');
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function stadiumPlaces(): BelongsToMany
+    {
+        return $this->belongsToMany(StadiumPlace::class, 'match_places', 'match_id', 'stadium_place_id');
     }
 
     /**

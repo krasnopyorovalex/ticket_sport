@@ -10,7 +10,7 @@ use App\Match;
  */
 class GetAllMatchesWithPaginateQuery
 {
-    private const LIMIT = 1;
+    private const LIMIT = 10;
 
     /**
      * Execute the job.

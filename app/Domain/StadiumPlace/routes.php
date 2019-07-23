@@ -5,6 +5,7 @@ Route::group(['prefix' => 'stadium-places', 'as' => 'stadium_places.'], static f
 
     Route::get('{stadium}', 'StadiumPlaceController@index')->name('index');
     Route::get('create/{stadium}', 'StadiumPlaceController@create')->name('create');
+    Route::post('get-places/{stadium}', 'StadiumPlaceController@places')->name('places');
     Route::post('', 'StadiumPlaceController@store')->name('store');
     Route::post('{id}/positions', 'StadiumPlaceController@positions')->name('positions');
     Route::get('{id}/edit', 'StadiumPlaceController@edit')->name('edit');

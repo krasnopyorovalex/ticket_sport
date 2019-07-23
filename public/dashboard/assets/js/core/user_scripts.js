@@ -210,6 +210,21 @@ $(function() {
         escapeMarkup: function(m) { return m; }
     });
 
+    var stadium = $("#stadium"),
+        stadiumPlaces = $("#stadium_places");
+    if (stadium.length) {
+        stadium.on("change", function () {
+            var stadiumId = parseInt($(this).val());
+
+            return $.ajax({
+                url: '/_root/stadium-places/get-places/' + stadiumId,
+                type: "POST",
+                success: function (response) {
+                    return stadiumPlaces.html(response);
+                }
+            });
+        });
+    }
 });
 
 // Format icon
@@ -256,7 +271,7 @@ function sendDestroyRequest(_this, alias = '') {
 
     // On confirm
     notice.get().on('pnotify.confirm', function() {
-        if(alias == 'index'){
+        if(alias === 'index'){
             return new PNotify({
                 title: 'Осторожно',
                 text: 'Нельзя удалить главную страницу',

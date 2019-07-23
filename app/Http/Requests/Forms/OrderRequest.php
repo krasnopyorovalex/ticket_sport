@@ -16,7 +16,8 @@ class OrderRequest extends Request
             'name' => 'required|string|min:2',
             'phone' => 'required|string',
             'email' => 'required|email',
-            'match' => 'required|string'
+            'match' => 'required|string',
+            'ticket' => 'required|string'
         ];
     }
 }

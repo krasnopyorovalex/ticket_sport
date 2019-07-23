@@ -7,10 +7,10 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class CallbackSent
+ * Class SubscribeSent
  * @package App\Mail
  */
-class CallbackSent extends Mailable
+class SubscribeSent extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -26,13 +26,13 @@ class CallbackSent extends Mailable
     }
 
     /**
-     * @return CallbackSent
+     * @return SubscribeSent
      */
-    public function build(): CallbackSent
+    public function build(): SubscribeSent
     {
         return $this->from('ticket-group@yandex.ru')
-            ->subject('Форма: Обратный звонок')
-            ->view('emails.callback', [
+            ->subject('Форма: Подписаться')
+            ->view('emails.subscribe', [
                 'data' => $this->data
             ]);
     }

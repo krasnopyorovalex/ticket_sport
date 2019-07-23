@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Domain\Stadium\Queries;
 
-use App\Stadium;
+namespace App\Domain\MatchPlace\Queries;
+
+
+use App\MatchPlace;
 
 /**
- * Class GetStadiumByIdQuery
- * @package App\Domain\Stadium\Queries
+ * Class GetMatchPlaceByIdQuery
+ * @package App\Domain\MatchPlace\Queries
  */
-class GetStadiumByIdQuery
+class GetMatchPlaceByIdQuery
 {
     /**
      * @var int
@@ -16,7 +18,7 @@ class GetStadiumByIdQuery
     private $id;
 
     /**
-     * GetStadiumByIdQuery constructor.
+     * GetMatchByIdQuery constructor.
      * @param int $id
      */
     public function __construct(int $id)
@@ -29,6 +31,6 @@ class GetStadiumByIdQuery
      */
     public function handle()
     {
-        return Stadium::with(['image','stadiumPlaces'])->findOrFail($this->id);
+        return MatchPlace::findOrFail($this->id);
     }
 }

@@ -15,7 +15,8 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
-Route::post('send-callback', 'CallbackController@callback')->name('send.callback');
+Route::post('send-recall', 'RecallController@recall')->name('send.recall');
+Route::post('send-subscribe', 'SubscribeController@subscribe')->name('send.subscribe');
 Route::post('send-order', 'OrderController@order')->name('send.order');
 
 Route::get('{alias?}', 'PageController@show')->name('page.show');
