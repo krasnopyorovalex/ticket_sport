@@ -40,7 +40,7 @@ class SearchService
             $this->matches = $stadiumMatches->matches;
         }
 
-        if ($championshipMatches->matches) {
+        if ($championshipMatches && $championshipMatches->matches) {
             $this->matches = $championshipMatches->matches;
         }
 
