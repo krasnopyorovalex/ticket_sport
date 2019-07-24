@@ -25,8 +25,8 @@
         <svg>
             <use xlink:href="{{ asset('img/sprites/sprite.svg#location') }}"></use>
         </svg>
-        {{ $match->stadium->location }}
-        <span>Стадион: {{ $match->stadium->name }}</span>
+        {{ $match->stadium && $match->stadium->location }}
+        <span>Стадион: {{ $match->stadium ? $match->stadium->name : '' }}</span>
     </div>
     <div class="order">
         <div class="btn btn_order" data-match="{{ $match->id }}">
