@@ -24,6 +24,7 @@ Route::get('{alias?}', 'PageController@show')->name('page.show');
 Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], static function () {
 
     Route::get('', 'HomeController@home')->name('home');
+    Route::post('search', 'SearchController@search')->name('search');
 
     Route::post('upload-ckeditor', 'CkeditorController@upload')->name('upload-ckeditor');
 

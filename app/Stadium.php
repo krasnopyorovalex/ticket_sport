@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Stadium extends Model
 {
-    use MatchTrait;
-
     public $timestamps = false;
 
     protected $table = 'stadiums';
@@ -30,5 +28,13 @@ class Stadium extends Model
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function matches(): HasMany
+    {
+        return $this->hasMany(Match::class);
     }
 }

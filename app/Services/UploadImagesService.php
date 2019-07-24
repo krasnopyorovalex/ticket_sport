@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
+use Illuminate\Http\UploadedFile;
 
 /**
  * Class UploadImagesService
@@ -23,7 +24,7 @@ class UploadImagesService
     private $heightThumb = null;
 
     /**
-     * @var \Illuminate\Http\UploadedFile
+     * @var UploadedFile
      */
     private $image;
 
@@ -113,7 +114,7 @@ class UploadImagesService
     {
         (new ImageManager())
             ->make($this->image)
-            ->resize($this->widthThumb, $this->heightThumb, function ($constraint) {
+            ->resize($this->widthThumb, $this->heightThumb, static function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->save(public_path('storage/' . $this->entity . '/' . $this->entityId .'/' . $this->getImageHashName() . '_thumb.' . $this->getExt()));

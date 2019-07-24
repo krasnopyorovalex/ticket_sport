@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\Team\Queries;
+namespace App\Domain\Stadium\Queries;
 
-use App\Team;
+use App\Stadium;
 
 /**
- * Class GetTeamByNameQuery
- * @package App\Domain\Team\Queries
+ * Class GetStadiumByNameQuery
+ * @package App\Domain\Stadium\Queries
  */
-class GetTeamByNameQuery
+class GetStadiumByNameQuery
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ class GetTeamByNameQuery
     private $keyword;
 
     /**
-     * GetTeamByNameQuery constructor.
+     * GetStadiumByNameQuery constructor.
      * @param string $keyword
      */
     public function __construct(string $keyword)
@@ -29,8 +29,8 @@ class GetTeamByNameQuery
      */
     public function handle()
     {
-        return Team::where('name', 'like', '%' . $this->keyword . '%')
-            ->with(['matchesFirst', 'matchesSecond'])
+        return Stadium::where('name', 'like', '%' . $this->keyword . '%')
+            ->with(['matches'])
             ->first();
     }
 }

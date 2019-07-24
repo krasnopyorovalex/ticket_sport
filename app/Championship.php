@@ -41,7 +41,7 @@ class Championship extends Model
             return $this->teams;
         }
 
-        $activeMatches = Match::whereIn('stage_id', $this->stages->pluck('id'))
+        $activeMatches = Match::whereIn('stage_id', $stages)
             ->with(['teamFirst.image', 'teamSecond.image'])
             ->active()
             ->get();
@@ -59,5 +59,19 @@ class Championship extends Model
         }
 
         return $this->teams;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMatchesAttribute(): array
+    {
+        $stages = $this->stages->pluck('id');
+
+        if (!count($stages)) {
+            return [];
+        }
+
+        return Match::where('stage_id', $stages)->get();
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\Team\Queries;
+namespace App\Domain\Championship\Queries;
 
-use App\Team;
+use App\Championship;
 
 /**
- * Class GetTeamByNameQuery
- * @package App\Domain\Team\Queries
+ * Class GetChampionshipByNameQuery
+ * @package App\Domain\Championship\Queries
  */
-class GetTeamByNameQuery
+class GetChampionshipByNameQuery
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ class GetTeamByNameQuery
     private $keyword;
 
     /**
-     * GetTeamByNameQuery constructor.
+     * GetChampionshipByNameQuery constructor.
      * @param string $keyword
      */
     public function __construct(string $keyword)
@@ -29,8 +29,7 @@ class GetTeamByNameQuery
      */
     public function handle()
     {
-        return Team::where('name', 'like', '%' . $this->keyword . '%')
-            ->with(['matchesFirst', 'matchesSecond'])
+        return Championship::where('name', 'like', '%' . $this->keyword . '%')
             ->first();
     }
 }

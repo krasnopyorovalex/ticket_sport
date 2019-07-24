@@ -6,6 +6,35 @@ $(function() {
         }
     });
 
+    var searchBox = $(".search_box"),
+        results = $("#search_results");
+    if (searchBox.length) {
+        searchBox.on("click", ".input-group-addon", function () {
+            var form = $(this).closest("form");
+
+            if (form.find("input[name=keyword]").val().length < 3) {
+                return false;
+            }
+
+            return form.submit();
+        });
+        searchBox.on("submit", "form", function (e) {
+            e.preventDefault();
+            var _this = $(this),
+                data = _this.serialize();
+
+            return $.ajax({
+                url: _this.attr("action"),
+                type: "POST",
+                data: data,
+                dataType: "html",
+                success: function (response) {
+                    return results.html(response);
+                }
+            });
+        });
+    }
+
     /*
      |-----------------------------------------------------------
      |   left navigation
@@ -17,7 +46,7 @@ $(function() {
     pathname = pathname[1] + '/' + pathname[2];
 
     sidebar_li.each(function () {
-        if ($(this).attr('href').indexOf(pathname) != -1) {
+        if ($(this).attr('href').indexOf(pathname) !== -1) {
             return $(this).parent('li').addClass('active');
         }
     });
