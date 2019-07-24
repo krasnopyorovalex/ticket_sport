@@ -93,10 +93,13 @@ class StageController extends Controller
      */
     public function destroy($id)
     {
-        $this->dispatch(new DeleteStageCommand($id));
         $stage = $this->dispatch(new GetStageByIdQuery($id));
 
-        return redirect(route('admin.stages.index', ['stage' => $stage->championship->id]));
+        $championship = $stage->championship;
+
+        $this->dispatch(new DeleteStageCommand($id));
+
+        return redirect(route('admin.stages.index', ['stage' => $championship->id]));
     }
 
     /**

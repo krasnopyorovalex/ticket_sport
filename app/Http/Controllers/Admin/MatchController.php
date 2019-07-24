@@ -111,9 +111,12 @@ class MatchController extends Controller
      */
     public function destroy($id)
     {
-        $this->dispatch(new DeleteMatchCommand($id));
         $match = $this->dispatch(new GetMatchByIdQuery($id));
 
-        return redirect(route('admin.matches.index', ['Match' => $match->stage->id]));
+        $stage = $match->stage;
+
+        $this->dispatch(new DeleteMatchCommand($id));
+
+        return redirect(route('admin.matches.index', ['Match' => $stage->id]));
     }
 }

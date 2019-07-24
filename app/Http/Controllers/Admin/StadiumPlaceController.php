@@ -94,10 +94,13 @@ class StadiumPlaceController extends Controller
      */
     public function destroy($id)
     {
-        $this->dispatch(new DeleteStadiumPlaceCommand($id));
         $stadiumPlace = $this->dispatch(new GetStadiumPlaceByIdQuery($id));
 
-        return redirect(route('admin.stadium_places.index', ['stadium' => $stadiumPlace->stadium->id]));
+        $stadium = $stadiumPlace->stadium;
+
+        $this->dispatch(new DeleteStadiumPlaceCommand($id));
+
+        return redirect(route('admin.stadium_places.index', ['stadium' => $stadium->id]));
     }
 
     /**
