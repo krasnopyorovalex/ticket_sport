@@ -33,7 +33,7 @@
                             {{ $match->teamFirst->name }} - {{ $match->teamSecond ? $match->teamSecond->name : '?' }}
                         </span>
                     </td>
-                    <td><span class="label label-default">{{ $match->stadium->name}}</span></td>
+                    <td><span class="label label-default">{{ $match->stadium ? $match->stadium->name : '?'}}</span></td>
                     <td><span class="label label-success">{{ $match->start_datetime }}</span></td>
                     <td>
                         <div>
