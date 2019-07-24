@@ -15,7 +15,7 @@
                                 <span class="input-group-addon"><i class="icon-search4"></i></span>
                             </div>
                         </div>
-                        <label class="control-label col-lg-7">Введите команду, чемпионат или стадион</label>
+                        <label class="control-label col-lg-7" data-action="reload">Введите команду, чемпионат или стадион</label>
                     </div>
                 </form>
             </div>

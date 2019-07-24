@@ -16,6 +16,9 @@ $(function() {
                 return false;
             }
 
+            var block = $(this).parent().parent().parent().parent().parent();
+            preloadSearch(block);
+
             return form.submit();
         });
         searchBox.on("submit", "form", function (e) {
@@ -310,4 +313,26 @@ function sendDestroyRequest(_this, alias = '') {
         }
         return _this.closest('form').trigger('submit');
     });
+}
+
+function preloadSearch(block) {
+    $(block).block({
+        message: '<i class="icon-spinner2 spinner"></i>',
+        overlayCSS: {
+            backgroundColor: '#fff',
+            opacity: 0.8,
+            cursor: 'wait',
+            'box-shadow': '0 0 0 1px #ddd'
+        },
+        css: {
+            border: 0,
+            padding: 0,
+            backgroundColor: 'none'
+        }
+    });
+
+    // For demo purposes
+    window.setTimeout(function () {
+        $(block).unblock();
+    }, 300);
 }
