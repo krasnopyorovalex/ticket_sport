@@ -34,13 +34,9 @@ class SearchService
 
         if ($teamMatches) {
             $this->matches = $teamMatches->matchesFirst->merge($teamMatches->matchesSecond);
-        }
-
-        if ($stadiumMatches) {
+        } elseif ($stadiumMatches) {
             $this->matches = $stadiumMatches->matches;
-        }
-
-        if ($championshipMatches && $championshipMatches->matches) {
+        } elseif ($championshipMatches && $championshipMatches->matches) {
             $this->matches = $championshipMatches->matches;
         }
 
