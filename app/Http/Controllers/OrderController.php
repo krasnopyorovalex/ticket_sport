@@ -16,7 +16,7 @@ class OrderController extends Controller
 {
     use DispatchesJobs;
 
-    private $to = 'djShtaket88@mail.ru';
+    private $to = 'book@ticket-sport.ru';
 
     /**
      * @param OrderRequest $request
@@ -24,7 +24,7 @@ class OrderController extends Controller
      */
     public function order(OrderRequest $request): array
     {
-        //Mail::to([$this->to])->send(new OrderSent($request->all()));
+        Mail::to([$this->to])->send(new OrderSent($request->all()));
 
         $this->dispatch(new CreateOrderCommand($request->all()));
 

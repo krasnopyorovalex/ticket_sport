@@ -30,7 +30,7 @@ class RecallSent extends Mailable
      */
     public function build(): RecallSent
     {
-        return $this->from('ticket-group@yandex.ru')
+        return $this->from('bilety.sport@yandex.ru')
             ->subject('Форма: Обратный звонок')
             ->view('emails.recall', [
                 'data' => $this->data

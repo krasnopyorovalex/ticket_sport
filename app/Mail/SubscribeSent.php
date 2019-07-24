@@ -30,7 +30,7 @@ class SubscribeSent extends Mailable
      */
     public function build(): SubscribeSent
     {
-        return $this->from('ticket-group@yandex.ru')
+        return $this->from('bilety.sport@yandex.ru')
             ->subject('Форма: Подписаться')
             ->view('emails.subscribe', [
                 'data' => $this->data

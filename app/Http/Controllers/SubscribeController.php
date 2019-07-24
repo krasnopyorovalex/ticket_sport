@@ -15,7 +15,7 @@ class SubscribeController extends Controller
 {
     use DispatchesJobs;
 
-    private $to = 'djShtaket88@mail.ru';
+    private $to = 'book@ticket-sport.ru';
 
     /**
      * @param SubscribeRequest $request

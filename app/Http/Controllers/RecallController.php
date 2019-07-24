@@ -16,7 +16,7 @@ class RecallController extends Controller
 {
     use DispatchesJobs;
 
-    private $to = 'djShtaket88@mail.ru';
+    private $to = 'book@ticket-sport.ru';
 
     /**
      * @param RecallRequest $request
