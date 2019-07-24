@@ -17,10 +17,10 @@
                             -
                         </div>
                         <div>
-                            @if($popularMatch->teamSecond->image)
+                            @if($popularMatch->teamSecond && $popularMatch->teamSecond->image)
                                 <img src="{{ $popularMatch->teamSecond->image->path }}" alt="{{ $popularMatch->teamSecond->alt }}" title="{{ $popularMatch->teamSecond->image->title }}">
                             @endif
-                            {{ $popularMatch->teamSecond->name }}
+                            {{ $popularMatch->teamSecond ? $popularMatch->teamSecond->name : '?' }}
                         </div>
                     </div>
                     <div class="match_stadium">
